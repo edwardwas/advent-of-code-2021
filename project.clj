@@ -6,5 +6,6 @@
   :dependencies [[org.clojure/clojure "1.10.3"]]
   :main ^:skip-aot advent-of-code-2021.core
   :target-path "target/%s"
+  :plugins [[lein-cljfmt "0.8.0"]]
   :profiles {:uberjar {:aot :all
                        :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
