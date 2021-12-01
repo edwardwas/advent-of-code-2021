@@ -5,7 +5,7 @@
 
 (defn run-for-day
   [info]
-  (let [{:keys [number part1 part2 input]} info] 
+  (let [{:keys [number part1 part2 input]} info]
     (println "Day" number)
     (print "Part 1: ")
     (flush)
