@@ -22,12 +22,12 @@
 
 (defn- update-submarine-with-command-for-part-1
   [sub [tag amount]]
-  (case tag 
+  (case tag
     :up (update sub :depth #(- % amount))
     :down (update sub :depth + amount)
     :forward (update sub :horiz + amount)
     (throw (ex-info "Unknown command"
-                    {:tag tag})))) 
+                    {:tag tag}))))
 
 (defn- update-submarine-with-command-for-part-2
   [sub [tag amount]]
