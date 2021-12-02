@@ -1,6 +1,7 @@
 (ns advent-of-code-2021.core
   (:require
-   [advent-of-code-2021.day01 :as day01])
+   [advent-of-code-2021.day01 :as day01]
+   [advent-of-code-2021.day02 :as day02])
   (:gen-class))
 
 (defn run-for-day
@@ -18,5 +19,6 @@
   [& args]
   (doseq [a (map #(Integer/parseInt %) args)]
     (let [info (case a
-                 1 day01/info)]
+                 1 day01/info
+                 2 day02/info)]
       (run-for-day (assoc info :number a)))))
