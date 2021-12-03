@@ -40,8 +40,6 @@
                        (first bits) 
                        tie-break)
             new-col (filter #(= bit-mask (get % i)) col)] 
-        (when(= new-col col)
-          (throw (ex-info "Loop found" {:col col})))
         (recur new-col (inc i))))))
 
 (defn- calculate-oxygen-generator-rating

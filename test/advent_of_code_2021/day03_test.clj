@@ -7,3 +7,8 @@
   (is
    (= (sut/part1 sut/test-input)
       198)))
+
+(deftest part2-test
+  (is
+   (= (sut/part2 sut/test-input)
+      230)))
