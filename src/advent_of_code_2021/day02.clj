@@ -1,6 +1,6 @@
 (ns advent-of-code-2021.day02
   (:require
-   [clojure.java.io :as io]
+   [advent-of-code-2021.util :as util]
    [clojure.string :as str]))
 
 (defn- parse-line
@@ -8,12 +8,8 @@
   (let [[tag n-str] (str/split l #" ")]
     [(keyword tag) (Integer/parseInt n-str)]))
 
-(defonce input
-  (as-> "input/day02.txt" x
-    (io/resource x)
-    (slurp x)
-    (str/split x #"\n")
-    (map parse-line x)))
+(def input
+  (map parse-line (util/read-day-input-rows 2)))
 
 (def start-submarine
   {:depth 0
