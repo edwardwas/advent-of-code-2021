@@ -1,0 +1,4 @@
+{:lint-as
+ {orchestra.core/defn-spec clj-kondo.lint-as/def-catch-all,
+  ref-data-pipeline.config/def-config-var
+  clj-kondo.lint-as/def-catch-all}}

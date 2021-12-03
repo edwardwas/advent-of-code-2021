@@ -1,18 +1,23 @@
 (ns advent-of-code-2021.util
   (:require
    [clojure.java.io :as io]
-   [clojure.string :as str]))
+   [clojure.spec.alpha :as s]
+   [clojure.string :as str]
+   [orchestra.core :refer [defn-spec]]
+   [orchestra.spec.test :as st]))
 
-(defn read-day-input-rows
-  [n]
+(defn-spec read-day-input-rows (s/coll-of string?)
+  [n int?]
   (as-> n x
     (format "input/day%02d.txt" x)
     (io/resource x)
     (slurp x)
     (str/split x #"\n")))
 
-(defn binary->decimal
-  [binary-seq]
+(defn-spec binary->decimal int? 
+  "Convert a collection of 0s and 1s to a decimal number"
+  [binary-seq (s/coll-of #(and (int? %) (#{0 1} %))
+                         :min-count 1)] 
   (->> binary-seq 
        reverse
        (map (fn [x n] (* n (Math/pow 2 x))) (range))
@@ -38,3 +43,5 @@
   "Return a set of the last common items in `col`"
   [col]
   (common-helper identity col))
+
+(st/instrument)
