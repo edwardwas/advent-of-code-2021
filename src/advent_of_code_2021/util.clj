@@ -7,12 +7,14 @@
    [orchestra.spec.test :as st]))
 
 (defn-spec read-day-input-rows (s/coll-of string?)
-  [n int?]
-  (as-> n x
-    (format "input/day%02d.txt" x)
-    (io/resource x)
-    (slurp x)
-    (str/split x #"\n")))
+  ([n int?] 
+   (read-day-input-rows n "input"))
+  ([n int? fp string?]
+   (as-> n x
+     (format "%s/day%02d.txt" fp x)
+     (io/resource x)
+     (slurp x)
+     (str/split x #"\n"))))
 
 (defn-spec binary->decimal int? 
   "Convert a collection of 0s and 1s to a decimal number"
