@@ -3,7 +3,8 @@
    [advent-of-code-2021.day01 :as day01]
    [advent-of-code-2021.day02 :as day02]
    [advent-of-code-2021.day03 :as day03]
-   [advent-of-code-2021.day04 :as day04])
+   [advent-of-code-2021.day04 :as day04]
+   [advent-of-code-2021.day05 :as day05])
   (:gen-class))
 
 (defn run-for-day
@@ -24,5 +25,6 @@
                  1 day01/info
                  2 day02/info
                  3 day03/info
-                 4 day04/info)]
+                 4 day04/info
+                 5 day05/info)]
       (run-for-day (assoc info :number a)))))
