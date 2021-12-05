@@ -5,7 +5,8 @@
 (defn- parse-line-segment
   [s]
   (let [[_ x1 y1 x2 y2] (re-matches #"(\d+),(\d+) -> (\d+),(\d+)" s)]
-    [[(Integer/parseInt x1) (Integer/parseInt y1)] [(Integer/parseInt x2) (Integer/parseInt y2)]]))
+    [[(Integer/parseInt x1) (Integer/parseInt y1)]
+     [(Integer/parseInt x2) (Integer/parseInt y2)]]))
 
 (defn- horiz-or-vertical?
   [[[x1 y1] [x2  y2]]]
@@ -21,8 +22,6 @@
              (range y1 (+ 1 y2)))] 
     (map vector xs ys)))
 
-(diag-line-locations [[9 7] [7 9]])
-
 (defn- locations
   [[[x1 y1] [x2 y2]]]
   (cond
@@ -33,7 +32,7 @@
     :else
     (diag-line-locations [[x1 y1] [x2 y2]])))
 
-(defn parts-shared
+(defn- parts-shared
   [filter-func input]
   (->> input
        (map parse-line-segment)
