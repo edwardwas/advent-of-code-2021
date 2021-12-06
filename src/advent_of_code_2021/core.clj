@@ -4,7 +4,8 @@
    [advent-of-code-2021.day02 :as day02]
    [advent-of-code-2021.day03 :as day03]
    [advent-of-code-2021.day04 :as day04]
-   [advent-of-code-2021.day05 :as day05])
+   [advent-of-code-2021.day05 :as day05]
+   [advent-of-code-2021.day06 :as day06])
   (:gen-class))
 
 (defn run-for-day
@@ -18,13 +19,14 @@
     (flush)
     (println (part2 input))))
 
+(def info-maps
+  [day01/info day02/info day03/info day04/info day05/info day06/info])
+
 (defn -main
   [& args]
-  (doseq [a (map #(Integer/parseInt %) args)]
-    (let [info (case a
-                 1 day01/info
-                 2 day02/info
-                 3 day03/info
-                 4 day04/info
-                 5 day05/info)]
-      (run-for-day (assoc info :number a)))))
+  (if (get (into #{} args) "all")
+    (doseq [[n i] (map vector (range) info-maps)]
+      (run-for-day (assoc i :number (inc n))))
+    (doseq [a (map #(Integer/parseInt %) args)]
+      (let [info (get info-maps (- a 1))] 
+        (run-for-day (assoc info :number a))))))
