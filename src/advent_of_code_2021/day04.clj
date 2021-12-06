@@ -11,7 +11,7 @@
    (fn [row] (->> (str/split row #"\s+")
                   (remove #(= "" %))
                   (mapv (fn [s] {:number (Integer/parseInt s)
-                                 :marked false})))) 
+                                 :marked false}))))
    rows))
 
 (defn- parse-input
@@ -19,10 +19,10 @@
   (let [[numbers _ & rows] input]
     {:numbers (map #(Integer/parseInt %) (str/split numbers #","))
      :boards (->> rows
-                (iterate (partial drop (inc grid-size)))
-                (map (partial take grid-size))
-                (take-while (complement empty?))
-                (map parse-grid))})) 
+                  (iterate (partial drop (inc grid-size)))
+                  (map (partial take grid-size))
+                  (take-while (complement empty?))
+                  (map parse-grid))}))
 
 (defn- board-wins?
   [board]

@@ -28,5 +28,5 @@
     (doseq [[n i] (map vector (range) info-maps)]
       (run-for-day (assoc i :number (inc n))))
     (doseq [a (map #(Integer/parseInt %) args)]
-      (let [info (get info-maps (- a 1))] 
+      (let [info (get info-maps (- a 1))]
         (run-for-day (assoc info :number a))))))

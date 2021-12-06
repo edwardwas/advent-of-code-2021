@@ -19,7 +19,7 @@
              (range x1 (+ 1 x2)))
         ys (if (> y1 y2)
              (reverse (range y2 (+ 1 y1)))
-             (range y1 (+ 1 y2)))] 
+             (range y1 (+ 1 y2)))]
     (map vector xs ys)))
 
 (defn- locations

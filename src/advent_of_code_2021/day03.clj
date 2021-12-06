@@ -36,10 +36,10 @@
     (if (= 1 (count col))
       (util/binary->decimal (first col))
       (let [bits (f (map #(get % i) col))
-            bit-mask (if (= 1 (count bits)) 
-                       (first bits) 
+            bit-mask (if (= 1 (count bits))
+                       (first bits)
                        tie-break)
-            new-col (filter #(= bit-mask (get % i)) col)] 
+            new-col (filter #(= bit-mask (get % i)) col)]
         (recur new-col (inc i))))))
 
 (defn- calculate-oxygen-generator-rating

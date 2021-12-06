@@ -7,7 +7,7 @@
    [orchestra.spec.test :as st]))
 
 (defn-spec read-day-input-rows (s/coll-of string?)
-  ([n int?] 
+  ([n int?]
    (read-day-input-rows n "input"))
   ([n int? fp string?]
    (as-> n x
@@ -16,11 +16,11 @@
      (slurp x)
      (str/split x #"\n"))))
 
-(defn-spec binary->decimal int? 
+(defn-spec binary->decimal int?
   "Convert a collection of 0s and 1s to a decimal number"
   [binary-seq (s/coll-of #(and (int? %) (#{0 1} %))
-                         :min-count 1)] 
-  (->> binary-seq 
+                         :min-count 1)]
+  (->> binary-seq
        reverse
        (map (fn [x n] (* n (Math/pow 2 x))) (range))
        (reduce +)

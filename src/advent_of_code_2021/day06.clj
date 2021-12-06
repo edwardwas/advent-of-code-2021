@@ -11,7 +11,7 @@
   [start]
   (->> start
        (map (fn [x] {x 1}))
-       (apply merge-with +))) 
+       (apply merge-with +)))
 
 (defn- advance-generation
   [count-map]
@@ -24,7 +24,7 @@
 
 (defn- population-count
   [count-map]
-  (->> count-map (map second) (apply +))) 
+  (->> count-map (map second) (apply +)))
 
 (defn- total-count-after-days
   [days input]
@@ -46,4 +46,4 @@
 (def info
   {:part1 part1
    :part2 part2
-   :input (parse-input (first (util/read-day-input-rows 6 "input")))}) 
+   :input (parse-input (first (util/read-day-input-rows 6 "input")))})
